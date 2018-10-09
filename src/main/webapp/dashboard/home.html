@@ -19,9 +19,9 @@
                         {{item.likes}} <a class="btn btn-default btn-xs" ng-click="likeOrNot(item.id,item.liked)">
                         <i class="fa fa-star-o text-muted" ng-if="item.liked == 0"></i>
                         <i class="fa fa-star text-danger" ng-if="item.liked == 1"></i> Like
-                    </a> <a class="btn btn-default btn-xs" data-toggle="modal" data-target="#replyModal" ng-click="setReplyPostId(item.id)"> <i
+                    </a> <a class="btn btn-default btn-xs" data-toggle="modal" data-target="#commentModal" ng-click="setCommentPostId(item.id)"> <i
                             class="fa fa-mail-reply text-muted" ></i>
-                        Reply
+                        Comment
                     </a>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
     </div>
 </div>
 <!-- Modal -->
-<div class="modal fade" id="replyModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="commentModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -74,7 +74,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="text" class="form-control" ng-model="comment.cContent" placeholder="reply sth..."/>
+                <input type="text" class="form-control" ng-model="comment.cContent" placeholder="comment sth..."/>
             </div>
 
         </div><!-- /.modal-content -->

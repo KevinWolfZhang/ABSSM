@@ -19,7 +19,7 @@
     <mvc:resources mapping="/dashboard/**" location="/dashboard/"/>
     <mvc:resources mapping="/css/**" location="/css/"/>
     <mvc:resources mapping="/commonviews/**" location="/commonviews/"/>-->
-    <context:component-scan base-package="com.simple.weibo.controller"/>
+    <context:component-scan base-package="com.simple.chat.controller"/>
     <bean id="mappingJacksonHttpMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">
         <property name="supportedMediaTypes">
             <list>

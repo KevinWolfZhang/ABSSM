@@ -7,7 +7,6 @@ app.controller('homeCtrl',['$scope','$resource','$location',function ($scope,$re
     $scope.showPosts = function () {
         var postResource = $resource('post/show', {}, {query:{method:'GET', isArray:false}});
         postResource.query({}, function (res) {
-            debugger
             $scope.postList = res.data;
         }, function (res) {
             console.log("ERROR");
@@ -24,13 +23,13 @@ app.controller('homeCtrl',['$scope','$resource','$location',function ($scope,$re
         })
     }
 
-    $scope.setReplyPostId = function (id) {
-        $scope.replyPostId = id;
+    $scope.setCommentPostId = function (id) {
+        $scope.commentPostId = id;
     }
     
     $scope.addComment = function () {
         $scope.comment.cAuthorName = username;
-        $scope.comment.postId = $scope.replyPostId;
+        $scope.comment.postId = $scope.commentPostId;
         var commentResource = $resource('comment/new', {}, {save:{method:'POST'}});
         commentResource.save({}, $scope.comment,function (res) {
             $scope.showPosts();
@@ -44,7 +43,6 @@ app.controller('homeCtrl',['$scope','$resource','$location',function ($scope,$re
         if (liked == 1) {
             flag = false
         }
-        debugger
         console.log(id, '...', flag);
         var postResource = $resource('post/likes/:id/:flag', {id:id, flag:flag}, {save:{method:"GET"}});
         postResource.save({id:id, flag:flag}, function (res) {

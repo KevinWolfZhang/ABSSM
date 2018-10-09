@@ -5,7 +5,7 @@ app.controller('signupCtrl', function ($rootScope, $scope, $resource, $location,
 
         // var userResource = $resource('user/new', {}, {add:{method:'POST',responseType:"application/json;charset=UTF-8"}});
         // var userResource = $resource('user/new');
-        alert($scope.user.name + "," + $scope.user.pwd);
+        // alert($scope.user.name + "," + $scope.user.pwd);
         // userResource.save({},$scope.user, function (res) {
         //     alert("signup success");
         //     var user = res.data;

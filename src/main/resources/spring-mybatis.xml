@@ -14,7 +14,7 @@
        http://www.springframework.org/schema/context/spring-context.xsd
        ">
 
-    <context:component-scan base-package="com.simple.weibo"></context:component-scan>
+    <context:component-scan base-package="com.simple.chat"></context:component-scan>
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
     <!--dataSource-->
@@ -32,16 +32,16 @@
         <property name="mapperLocations" value="classpath:mappers/*.xml"/>
         <property name="typeAliases">
             <array>
-                <value>com.simple.weibo.entity.Post</value>
-                <value>com.simple.weibo.entity.Comment</value>
-                <value>com.simple.weibo.entity.User</value>
+                <value>com.simple.chat.entity.Post</value>
+                <value>com.simple.chat.entity.Comment</value>
+                <value>com.simple.chat.entity.User</value>
             </array>
         </property>
     </bean>
 
     <!--spring与mybatis整合 扫描所有dao-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.simple.weibo.dao"/>
+        <property name="basePackage" value="com.simple.chat.dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
 </beans>
