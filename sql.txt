@@ -1,0 +1,28 @@
+/*user±í*/
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `pwd` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+/*post±í*/
+CREATE TABLE `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author_name` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `likes` smallint(6) DEFAULT NULL,
+  `content` text COLLATE utf8mb4_bin,
+  `date` date NOT NULL,
+  `liked` int(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+/*comments±í*/
+CREATE TABLE `comments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `c_date` date NOT NULL,
+  `c_author_name` varchar(20) COLLATE utf8mb4_bin NOT NULL,
+  `c_content` text COLLATE utf8mb4_bin,
+  `post_id` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
