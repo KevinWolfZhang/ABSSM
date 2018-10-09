@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.simple.weibo.dao.CommentMapper">
+    <resultMap id="commentMap" type="comment">
+        <id property="id" column="id" javaType="int"/>
+        <result property="cDate" column="c_date" javaType="Date"/>
+        <result property="cContent" column="c_content" javaType="String"/>
+        <result property="cAuthorName" column="c_author_name" javaType="String"/>
+        <result property="postId" column="post_id" javaType="String"/>
+        <association property="post" column="post_id" javaType="post" select="selectPost"/>
+    </resultMap>
+    <select id="selectPost" parameterType="int" resultType="post">
+        select * from posts where id = #{id};
+    </select>
+    <insert id="insert" parameterType="comment" useGeneratedKeys="true" keyProperty="id">
+        insert into comments (c_date, c_author_name, c_content, post_id) values (now(), #{cAuthorName}, #{cContent}, #{postId});
+    </insert>
+    <delete id="delete">
+        delete from comments where id=#{id}
+    </delete>
+</mapper>
